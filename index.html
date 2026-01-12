@@ -3,368 +3,501 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rodeo Drive | Links</title>
-  <meta name="description" content="Tous mes liens officiels : réseaux sociaux, site web, contact." />
+  <title>Rodeo Drive Detailing | Premium Car Care</title>
+  <meta name="description" content="Car detailing premium à Doha : PPF, ceramic coating, polishing, tint. Réservation WhatsApp, itinéraire, réseaux sociaux." />
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Icons (Bootstrap Icons) -->
+  <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
   <style>
     :root{
-      --bg: #0b0c0f;
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.12);
+      --bg:#07080b;
+      --panel: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.14);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
-      --accent: rgba(255,255,255,.88);
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow: 0 28px 80px rgba(0,0,0,.65);
       --radius: 22px;
     }
-
-    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    *{ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     body{
-      min-height: 100vh;
+      background: radial-gradient(900px 500px at 20% 10%, rgba(255,255,255,.08), transparent 60%),
+                  radial-gradient(900px 500px at 85% 35%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, #06070a 0%, #0b0c0f 55%, #05060a 100%);
       color: var(--text);
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,.08), transparent 60%),
-                  radial-gradient(900px 500px at 85% 40%, rgba(255,255,255,.06), transparent 55%),
-                  linear-gradient(180deg, #07080b 0%, #0b0c0f 45%, #05060a 100%);
       overflow-x: hidden;
     }
 
-    /* Animated background grid */
-    .bg-grid{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(closest-side at 50% 20%, rgba(0,0,0,1), rgba(0,0,0,.2) 60%, rgba(0,0,0,0));
-      opacity: .55;
-      animation: gridMove 14s linear infinite;
-    }
-    @keyframes gridMove {
-      0% { transform: translate3d(0,0,0); }
-      100% { transform: translate3d(-80px, -80px, 0); }
-    }
-
-    /* Floating lights */
-    .orb{
-      position: fixed;
-      width: 420px;
-      height: 420px;
-      border-radius: 999px;
-      filter: blur(50px);
-      opacity: .18;
-      pointer-events: none;
-      animation: floaty 8s ease-in-out infinite;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%);
-    }
-    .orb.one{ top: -120px; left: -140px; animation-delay: 0s;}
-    .orb.two{ bottom: -160px; right: -160px; animation-delay: 1.6s; width: 520px; height: 520px; opacity: .14;}
-    @keyframes floaty{
-      0%,100%{ transform: translate(0,0) scale(1); }
-      50%{ transform: translate(18px, -14px) scale(1.04); }
-    }
-
-    /* Main container */
-    .wrap{
-      max-width: 720px;
-      padding: 28px 16px 46px;
-    }
-
-    /* Glass card */
-    .glass{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    /* ====== HERO ====== */
+    .hero{
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.10);
+      min-height: 72vh;
+    }
+    @media (max-width: 768px){
+      .hero{ min-height: 78vh; border-radius: 22px; }
     }
 
-    /* Header block animation */
-    .reveal{
-      opacity: 0;
-      transform: translateY(16px);
-      animation: reveal .8s ease forwards;
-    }
-    .reveal.delay-1{ animation-delay: .08s; }
-    .reveal.delay-2{ animation-delay: .16s; }
-    .reveal.delay-3{ animation-delay: .24s; }
-    .reveal.delay-4{ animation-delay: .32s; }
-    @keyframes reveal{
-      to { opacity: 1; transform: translateY(0); }
+    /* Hero overlay */
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 450px at 20% 20%, rgba(0,0,0,.25), rgba(0,0,0,.75) 70%),
+        linear-gradient(180deg, rgba(0,0,0,.30) 0%, rgba(0,0,0,.70) 70%, rgba(0,0,0,.82) 100%);
+      pointer-events:none;
+      z-index: 2;
     }
 
-    /* Logo */
-    .brand-logo{
-      width: 92px;
-      height: 92px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.14);
+    /* subtle moving shine */
+    .hero-shine{
+      position:absolute;
+      inset:-30%;
+      background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,.12) 50%, transparent 60%);
+      transform: translateX(-45%) rotate(10deg);
+      animation: sweep 9s ease-in-out infinite;
+      opacity:.25;
+      z-index: 3;
+      pointer-events:none;
+    }
+    @keyframes sweep{
+      0%{ transform: translateX(-45%) rotate(10deg); }
+      50%{ transform: translateX(10%) rotate(10deg); }
+      100%{ transform: translateX(70%) rotate(10deg); }
+    }
+
+    /* ====== HERO SLIDER (images locales) ====== */
+    .hero .carousel,
+    .hero .carousel-inner,
+    .hero .carousel-item{
+      height: 72vh;
+    }
+    @media (max-width: 768px){
+      .hero .carousel,
+      .hero .carousel-inner,
+      .hero .carousel-item{
+        height: 78vh;
+      }
+    }
+    .hero-img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      filter: contrast(1.08) saturate(1.06);
+      animation: slowZoom 13s ease-in-out infinite;
+    }
+    @keyframes slowZoom{
+      0%,100%{ transform: scale(1.05) translate3d(0,0,0); }
+      50%{ transform: scale(1.10) translate3d(0,-10px,0); }
+    }
+
+    /* Hero content */
+    .hero-content{
+      position:absolute;
+      inset: 0;
+      z-index: 4;
+      display:flex;
+      align-items: flex-end;
+    }
+
+    .hero-card{
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.55);
+    }
+
+    .brand-row{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+
+    .logo{
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
-      box-shadow: 0 14px 34px rgba(0,0,0,.45);
       object-fit: contain;
+      box-shadow: 0 16px 36px rgba(0,0,0,.45);
     }
 
     .brand-name{
-      letter-spacing: .4px;
-      font-weight: 700;
+      font-weight: 850;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      margin:0;
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    }
+    .brand-sub{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.35;
+      font-size: .98rem;
     }
 
-    .brand-tag{
-      color: var(--muted);
-      font-size: .98rem;
-      line-height: 1.3;
+    .chips{
+      display:flex;
+      gap:.5rem;
+      flex-wrap: wrap;
+      margin-top: .6rem;
     }
+    .chip{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.84);
+      padding: .36rem .62rem;
+      border-radius: 999px;
+      font-size: .86rem;
+      backdrop-filter: blur(10px);
+    }
+    .chip i{ margin-right: .35rem; opacity: .9; }
 
     /* Buttons */
-    .link-btn{
-      position: relative;
-      display: flex;
-      gap: 12px;
-      align-items: center;
+    .cta{
+      display:flex;
+      align-items:center;
       justify-content: space-between;
+      gap: 12px;
       padding: 14px 16px;
-      width: 100%;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
       color: var(--text);
+      text-decoration:none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.26);
+    }
+    .cta:active{ transform: translateY(0) scale(.99); }
+    .cta .left{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      min-width:0;
+    }
+    .ico{
+      width: 44px; height: 44px;
+      display:grid; place-items:center;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      flex: 0 0 auto;
+    }
+    .cta-title{ font-weight: 760; margin:0; line-height:1.1; }
+    .cta-sub{ margin:2px 0 0; color: var(--muted); font-size:.92rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .cta .right{ opacity:.8; }
+
+    /* Sections */
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      box-shadow: 0 22px 60px rgba(0,0,0,.50);
+      backdrop-filter: blur(16px);
+    }
+
+    .section-title{
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .muted{ color: var(--muted); }
+
+    /* Gallery cards */
+    .gcard{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 18px 48px rgba(0,0,0,.45);
+      height: 100%;
+      transition: transform .18s ease;
+    }
+    .gcard:hover{ transform: translateY(-2px); }
+    .gimg{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      filter: contrast(1.06) saturate(1.05);
+    }
+    @media (max-width: 576px){
+      .gimg{ height: 200px; }
+    }
+
+    /* Social icons */
+    .social{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .social a{
+      width: 52px; height: 52px;
+      display:grid; place-items:center;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.88);
       text-decoration: none;
       transition: transform .18s ease, background .18s ease, border-color .18s ease;
-      overflow: hidden;
     }
-    .link-btn:hover{
+    .social a:hover{
       transform: translateY(-2px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.24);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.26);
     }
-    .link-btn:active{
-      transform: translateY(0px) scale(.99);
-    }
+    .social i{ font-size: 1.2rem; }
 
-    /* Subtle animated shine */
-    .link-btn::before{
-      content:"";
-      position: absolute;
-      top: -40%;
-      left: -30%;
-      width: 40%;
-      height: 180%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-      transform: rotate(18deg);
-      opacity: 0;
-      transition: opacity .2s ease;
-    }
-    .link-btn:hover::before{
-      opacity: 1;
-      animation: shine 1.2s ease forwards;
-    }
-    @keyframes shine{
-      0%{ transform: translateX(-40%) rotate(18deg); }
-      100%{ transform: translateX(320%) rotate(18deg); }
-    }
+    /* Reveal animation */
+    .reveal{ opacity:0; transform: translateY(18px); animation: reveal .75s ease forwards; }
+    .d1{ animation-delay:.08s } .d2{ animation-delay:.16s } .d3{ animation-delay:.24s } .d4{ animation-delay:.32s }
+    @keyframes reveal{ to{ opacity:1; transform: translateY(0); } }
 
-    .btn-left{
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      min-width: 0;
-    }
-
-    .icon-badge{
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      flex: 0 0 auto;
-    }
-
-    .link-title{
-      font-weight: 650;
-      line-height: 1.1;
-      margin-bottom: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .link-sub{
-      color: var(--muted);
-      font-size: .9rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .chev{
-      color: rgba(255,255,255,.75);
-      flex: 0 0 auto;
-    }
-
-    /* Footer */
-    .mini{
-      color: rgba(255,255,255,.58);
-      font-size: .9rem;
-    }
-
-    /* Small devices */
-    @media (max-width: 420px){
-      .brand-logo{ width: 78px; height: 78px; border-radius: 16px; }
-      .link-btn{ padding: 13px 14px; }
-      .icon-badge{ width: 40px; height: 40px; border-radius: 13px; }
-    }
-
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .bg-grid, .orb, .reveal, .link-btn::before{ animation: none !important; }
-      .link-btn{ transition: none !important; }
+      .hero-shine, .hero-img, .reveal { animation: none !important; }
+      .cta, .gcard, .social a { transition: none !important; }
     }
   </style>
 </head>
 
 <body>
-  <div class="bg-grid"></div>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
+  <main class="container py-4" style="max-width: 1100px;">
+    <!-- HERO -->
+    <section class="hero reveal">
+      <div class="hero-shine"></div>
 
-  <main class="container wrap">
-    <section class="glass p-4 p-sm-5 mt-4 reveal">
-      <div class="d-flex align-items-center gap-3 gap-sm-4">
-        <!-- LOGO -->
-        <img class="brand-logo" src="assets/logo.png" alt="Logo" />
-
-        <div class="min-w-0">
-          <h1 class="h4 mb-1 brand-name">RODEO DRIVE</h1>
-          <p class="mb-0 brand-tag">
-            Tous mes liens officiels • Doha, Qatar<br />
-            <span class="mini">@rodeo.drive</span>
-          </p>
+      <!-- Carousel images (local) -->
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/hero-1.jpg" class="hero-img" alt="Car detailing hero 1">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/hero-2.jpg" class="hero-img" alt="Car detailing hero 2">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/hero-3.jpg" class="hero-img" alt="Car detailing hero 3">
+          </div>
         </div>
+
+        <!-- Controls (optional) -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
 
-      <hr class="my-4 border-light border-opacity-10">
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <div class="container pb-3 pb-sm-4">
+          <div class="hero-card p-3 p-sm-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-12 col-lg-6">
+                <div class="brand-row">
+                  <img src="assets/logo.png" class="logo" alt="Logo">
+                  <div class="min-w-0">
+                    <h1 class="brand-name">Rodeo Drive Detailing</h1>
+                    <p class="brand-sub">PPF • Ceramic Coating • Paint Correction • Tint<br/>Doha, Qatar</p>
+                    <div class="chips">
+                      <span class="chip"><i class="bi bi-shield-check"></i>Paint Protection</span>
+                      <span class="chip"><i class="bi bi-stars"></i>Showroom Finish</span>
+                      <span class="chip"><i class="bi bi-clipboard-check"></i>Certified Process</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-      <!-- LINKS -->
-      <div class="vstack gap-3 reveal delay-1">
-        <!-- Website -->
-        <a class="link-btn" href="https://example.com" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-globe2"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">Site web officiel</div>
-              <div class="link-sub">Visiter le site</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
+              <div class="col-12 col-lg-6">
+                <div class="row g-2">
+                  <div class="col-12 col-sm-6">
+                    <a class="cta" href="https://rodeodrive.work" target="_blank" rel="noopener">
+                      <div class="left">
+                        <div class="ico"><i class="bi bi-globe2"></i></div>
+                        <div class="min-w-0">
+                          <p class="cta-title">Website</p>
+                          <p class="cta-sub">Services & portfolio</p>
+                        </div>
+                      </div>
+                      <div class="right"><i class="bi bi-chevron-right"></i></div>
+                    </a>
+                  </div>
 
-        <!-- WhatsApp -->
-        <a class="link-btn" href="https://wa.me/97400000000" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-whatsapp"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">WhatsApp</div>
-              <div class="link-sub">Réserver / Demander un devis</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
+                  <div class="col-12 col-sm-6">
+                    <a class="cta" href="https://wa.me/97433388452" target="_blank" rel="noopener">
+                      <div class="left">
+                        <div class="ico"><i class="bi bi-whatsapp"></i></div>
+                        <div class="min-w-0">
+                          <p class="cta-title">WhatsApp</p>
+                          <p class="cta-sub">Book / Get a quote</p>
+                        </div>
+                      </div>
+                      <div class="right"><i class="bi bi-chevron-right"></i></div>
+                    </a>
+                  </div>
 
-        <!-- Instagram -->
-        <a class="link-btn" href="https://instagram.com/yourusername" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-instagram"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">Instagram</div>
-              <div class="link-sub">Reels • Avant/Après • Offres</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
+                  <div class="col-12 col-sm-6">
+                    <a class="cta" href="tel:+97433388452">
+                      <div class="left">
+                        <div class="ico"><i class="bi bi-telephone"></i></div>
+                        <div class="min-w-0">
+                          <p class="cta-title">Call</p>
+                          <p class="cta-sub">Support & booking</p>
+                        </div>
+                      </div>
+                      <div class="right"><i class="bi bi-chevron-right"></i></div>
+                    </a>
+                  </div>
 
-        <!-- TikTok -->
-        <a class="link-btn" href="https://tiktok.com/@yourusername" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-tiktok"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">TikTok</div>
-              <div class="link-sub">Vidéos courtes • Transformations</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
+                  <div class="col-12 col-sm-6">
+                    <a class="cta" href="https://www.google.com/maps?q=Rodeo+Drive+Detailing+Doha" target="_blank" rel="noopener">
+                      <div class="left">
+                        <div class="ico"><i class="bi bi-geo-alt"></i></div>
+                        <div class="min-w-0">
+                          <p class="cta-title">Directions</p>
+                          <p class="cta-sub">Maps • Hours • Reviews</p>
+                        </div>
+                      </div>
+                      <div class="right"><i class="bi bi-chevron-right"></i></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-        <!-- YouTube -->
-        <a class="link-btn" href="https://youtube.com/@yourusername" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-youtube"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">YouTube</div>
-              <div class="link-sub">Projets complets • Reviews</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
-
-        <!-- Facebook -->
-        <a class="link-btn" href="https://facebook.com/yourpage" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-facebook"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">Facebook</div>
-              <div class="link-sub">Posts • Promotions • Avis</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
-
-        <!-- Google Maps -->
-        <a class="link-btn" href="https://www.google.com/maps" target="_blank" rel="noopener">
-          <span class="btn-left">
-            <span class="icon-badge"><i class="bi bi-geo-alt"></i></span>
-            <span class="min-w-0">
-              <div class="link-title">Google Maps</div>
-              <div class="link-sub">Itinéraire • Horaires • Avis</div>
-            </span>
-          </span>
-          <i class="bi bi-chevron-right chev"></i>
-        </a>
-      </div>
-
-      <hr class="my-4 border-light border-opacity-10">
-
-      <!-- Secondary icons row -->
-      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center reveal delay-2">
-        <div class="mini">© <span id="year"></span> Rodeo Drive. Tous droits réservés.</div>
-        <div class="d-flex gap-2">
-          <a class="btn btn-sm btn-outline-light border-opacity-25" href="mailto:info@example.com">
-            <i class="bi bi-envelope"></i> Email
-          </a>
-          <a class="btn btn-sm btn-outline-light border-opacity-25" href="tel:+97400000000">
-            <i class="bi bi-telephone"></i> Appeler
-          </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <p class="text-center mt-3 mini reveal delay-3">
-      Astuce: héberge ce fichier sur Netlify / Vercel / GitHub Pages pour un lien unique à mettre dans bio.
-    </p>
+    <!-- SERVICES -->
+    <section class="mt-4 reveal d1">
+      <div class="panel p-4 p-sm-5" style="border-radius:22px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); box-shadow:0 22px 60px rgba(0,0,0,.50); backdrop-filter: blur(16px);">
+        <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+          <div>
+            <h2 class="h5 section-title mb-2">Services premium</h2>
+            <p class="muted mb-0">Protection, correction, finition showroom — process contrôlé & produits premium.</p>
+          </div>
+          <a class="btn btn-outline-light border-opacity-25" href="https://rodeodrive.work/services" target="_blank" rel="noopener">
+            Voir plus <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+
+        <div class="row g-3 mt-3">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="gcard p-3">
+              <div class="d-flex gap-3 align-items-center">
+                <div class="ico"><i class="bi bi-shield-check"></i></div>
+                <div>
+                  <div class="fw-bold">PPF</div>
+                  <div class="muted" style="font-size:.92rem;">Full / Partial protection film</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="gcard p-3">
+              <div class="d-flex gap-3 align-items-center">
+                <div class="ico"><i class="bi bi-droplet"></i></div>
+                <div>
+                  <div class="fw-bold">Ceramic Coating</div>
+                  <div class="muted" style="font-size:.92rem;">Gloss + hydrophobic protection</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="gcard p-3">
+              <div class="d-flex gap-3 align-items-center">
+                <div class="ico"><i class="bi bi-stars"></i></div>
+                <div>
+                  <div class="fw-bold">Paint Correction</div>
+                  <div class="muted" style="font-size:.92rem;">Swirls removal & clarity restore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="gcard p-3">
+              <div class="d-flex gap-3 align-items-center">
+                <div class="ico"><i class="bi bi-sun"></i></div>
+                <div>
+                  <div class="fw-bold">Tint</div>
+                  <div class="muted" style="font-size:.92rem;">Heat & UV protection film</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY (images locales) -->
+    <section class="mt-4 reveal d2">
+      <div class="panel p-4 p-sm-5" style="border-radius:22px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); box-shadow:0 22px 60px rgba(0,0,0,.50); backdrop-filter: blur(16px);">
+        <h2 class="h5 section-title mb-2">Galerie</h2>
+        <p class="muted mb-4">Remplace ces images avec tes photos locales (avant/après, atelier, finitions).</p>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <div class="gcard">
+              <img src="assets/gallery-1.jpg" class="gimg" alt="Gallery 1">
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="gcard">
+              <img src="assets/gallery-2.jpg" class="gimg" alt="Gallery 2">
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="gcard">
+              <img src="assets/gallery-3.jpg" class="gimg" alt="Gallery 3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL + FOOTER -->
+    <section class="mt-4 mb-5 reveal d3">
+      <div class="panel p-4 p-sm-5 text-center" style="border-radius:22px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); box-shadow:0 22px 60px rgba(0,0,0,.50); backdrop-filter: blur(16px);">
+        <h2 class="h6 section-title mb-3">Follow</h2>
+        <div class="social mb-3">
+          <a href="https://www.instagram.com/rodeo.drive.qtr/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1CJ1f2zL1g/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="mailto:info@rodeodrive.me" aria-label="Email"><i class="bi bi-envelope"></i></a>
+        </div>
+
+        <div class="muted">© <span id="year"></span> Rodeo Drive Detailing • Doha, Qatar</div>
+        <div class="muted mt-1">Precision. Protection. Performance.</div>
+      </div>
+    </section>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
