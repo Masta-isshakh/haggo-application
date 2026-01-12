@@ -1,10 +1,370 @@
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rodeo Drive | Links</title>
+  <meta name="description" content="Tous mes liens officiels : réseaux sociaux, site web, contact." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Icons (Bootstrap Icons) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg: #0b0c0f;
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --accent: rgba(255,255,255,.88);
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 22px;
+    }
+
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body{
+      min-height: 100vh;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,.08), transparent 60%),
+                  radial-gradient(900px 500px at 85% 40%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, #07080b 0%, #0b0c0f 45%, #05060a 100%);
+      overflow-x: hidden;
+    }
+
+    /* Animated background grid */
+    .bg-grid{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(closest-side at 50% 20%, rgba(0,0,0,1), rgba(0,0,0,.2) 60%, rgba(0,0,0,0));
+      opacity: .55;
+      animation: gridMove 14s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-80px, -80px, 0); }
+    }
+
+    /* Floating lights */
+    .orb{
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      filter: blur(50px);
+      opacity: .18;
+      pointer-events: none;
+      animation: floaty 8s ease-in-out infinite;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%);
+    }
+    .orb.one{ top: -120px; left: -140px; animation-delay: 0s;}
+    .orb.two{ bottom: -160px; right: -160px; animation-delay: 1.6s; width: 520px; height: 520px; opacity: .14;}
+    @keyframes floaty{
+      0%,100%{ transform: translate(0,0) scale(1); }
+      50%{ transform: translate(18px, -14px) scale(1.04); }
+    }
+
+    /* Main container */
+    .wrap{
+      max-width: 720px;
+      padding: 28px 16px 46px;
+    }
+
+    /* Glass card */
+    .glass{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Header block animation */
+    .reveal{
+      opacity: 0;
+      transform: translateY(16px);
+      animation: reveal .8s ease forwards;
+    }
+    .reveal.delay-1{ animation-delay: .08s; }
+    .reveal.delay-2{ animation-delay: .16s; }
+    .reveal.delay-3{ animation-delay: .24s; }
+    .reveal.delay-4{ animation-delay: .32s; }
+    @keyframes reveal{
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Logo */
+    .brand-logo{
+      width: 92px;
+      height: 92px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 14px 34px rgba(0,0,0,.45);
+      object-fit: contain;
+    }
+
+    .brand-name{
+      letter-spacing: .4px;
+      font-weight: 700;
+    }
+
+    .brand-tag{
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 1.3;
+    }
+
+    /* Buttons */
+    .link-btn{
+      position: relative;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      overflow: hidden;
+    }
+    .link-btn:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.24);
+    }
+    .link-btn:active{
+      transform: translateY(0px) scale(.99);
+    }
+
+    /* Subtle animated shine */
+    .link-btn::before{
+      content:"";
+      position: absolute;
+      top: -40%;
+      left: -30%;
+      width: 40%;
+      height: 180%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+      transform: rotate(18deg);
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .link-btn:hover::before{
+      opacity: 1;
+      animation: shine 1.2s ease forwards;
+    }
+    @keyframes shine{
+      0%{ transform: translateX(-40%) rotate(18deg); }
+      100%{ transform: translateX(320%) rotate(18deg); }
+    }
+
+    .btn-left{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .icon-badge{
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      flex: 0 0 auto;
+    }
+
+    .link-title{
+      font-weight: 650;
+      line-height: 1.1;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .link-sub{
+      color: var(--muted);
+      font-size: .9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chev{
+      color: rgba(255,255,255,.75);
+      flex: 0 0 auto;
+    }
+
+    /* Footer */
+    .mini{
+      color: rgba(255,255,255,.58);
+      font-size: .9rem;
+    }
+
+    /* Small devices */
+    @media (max-width: 420px){
+      .brand-logo{ width: 78px; height: 78px; border-radius: 16px; }
+      .link-btn{ padding: 13px 14px; }
+      .icon-badge{ width: 40px; height: 40px; border-radius: 13px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .bg-grid, .orb, .reveal, .link-btn::before{ animation: none !important; }
+      .link-btn{ transition: none !important; }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Welcome to Haggo Application</h1>
+  <div class="bg-grid"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <main class="container wrap">
+    <section class="glass p-4 p-sm-5 mt-4 reveal">
+      <div class="d-flex align-items-center gap-3 gap-sm-4">
+        <!-- LOGO -->
+        <img class="brand-logo" src="assets/logo.png" alt="Logo" />
+
+        <div class="min-w-0">
+          <h1 class="h4 mb-1 brand-name">RODEO DRIVE</h1>
+          <p class="mb-0 brand-tag">
+            Tous mes liens officiels • Doha, Qatar<br />
+            <span class="mini">@rodeo.drive</span>
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-4 border-light border-opacity-10">
+
+      <!-- LINKS -->
+      <div class="vstack gap-3 reveal delay-1">
+        <!-- Website -->
+        <a class="link-btn" href="https://example.com" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-globe2"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">Site web officiel</div>
+              <div class="link-sub">Visiter le site</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a class="link-btn" href="https://wa.me/97400000000" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-whatsapp"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">WhatsApp</div>
+              <div class="link-sub">Réserver / Demander un devis</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a class="link-btn" href="https://instagram.com/yourusername" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-instagram"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">Instagram</div>
+              <div class="link-sub">Reels • Avant/Après • Offres</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+
+        <!-- TikTok -->
+        <a class="link-btn" href="https://tiktok.com/@yourusername" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-tiktok"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">TikTok</div>
+              <div class="link-sub">Vidéos courtes • Transformations</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+
+        <!-- YouTube -->
+        <a class="link-btn" href="https://youtube.com/@yourusername" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-youtube"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">YouTube</div>
+              <div class="link-sub">Projets complets • Reviews</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+
+        <!-- Facebook -->
+        <a class="link-btn" href="https://facebook.com/yourpage" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-facebook"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">Facebook</div>
+              <div class="link-sub">Posts • Promotions • Avis</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+
+        <!-- Google Maps -->
+        <a class="link-btn" href="https://www.google.com/maps" target="_blank" rel="noopener">
+          <span class="btn-left">
+            <span class="icon-badge"><i class="bi bi-geo-alt"></i></span>
+            <span class="min-w-0">
+              <div class="link-title">Google Maps</div>
+              <div class="link-sub">Itinéraire • Horaires • Avis</div>
+            </span>
+          </span>
+          <i class="bi bi-chevron-right chev"></i>
+        </a>
+      </div>
+
+      <hr class="my-4 border-light border-opacity-10">
+
+      <!-- Secondary icons row -->
+      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center reveal delay-2">
+        <div class="mini">© <span id="year"></span> Rodeo Drive. Tous droits réservés.</div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-outline-light border-opacity-25" href="mailto:info@example.com">
+            <i class="bi bi-envelope"></i> Email
+          </a>
+          <a class="btn btn-sm btn-outline-light border-opacity-25" href="tel:+97400000000">
+            <i class="bi bi-telephone"></i> Appeler
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <p class="text-center mt-3 mini reveal delay-3">
+      Astuce: héberge ce fichier sur Netlify / Vercel / GitHub Pages pour un lien unique à mettre dans bio.
+    </p>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
